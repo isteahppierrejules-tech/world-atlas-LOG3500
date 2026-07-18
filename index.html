@@ -3,67 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Atlas - Interactif</title>
+    <title>Weather Dashboard - LOG3500</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <header>
         <nav>
-            <div class="logo">World Atlas</div>
+            <div class="logo">⛅ Weather Dashboard</div>
             <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Countries</a></li>
-                <li><a href="#">Regions</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="#">Forecast</a></li>
+                <li><a href="#">Map</a></li>
+                <li><a href="#">Alerts</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- Formulaire de recherche -->
+        <!-- Seksyon Chèche a -->
         <section class="search-section">
+            <h1>Consulter la météo en temps réel</h1>
             <form id="search-form" novalidate>
-                <div class="input-group">
-                    <input type="text" id="country-input" placeholder="Saisir le nom d'un pays... (ex: Haiti)">
+                <div class="search-group">
+                    <input type="text" id="country-input" placeholder="Entrez le nom d'une ville (ex: Jacmel)..." autocomplete="off">
                     <button type="submit">Rechercher</button>
                 </div>
-                <!-- Mesaj erè validation an -->
-                <p id="error-message" class="error-text" hidden></p>
+                <!-- Mesaj Erè Aksesibilite (aria) -->
+                <p id="error-message" class="error-msg" hidden></p>
             </form>
         </section>
 
-        <!-- Indicateur de Chargement (Spinner) -->
-        <div id="loading-spinner" class="spinner" hidden>
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>
-            <p>Chargement en cours...</p>
+        <!-- Spinner pou Loading -->
+        <div id="loading-spinner" class="spinner-container" hidden>
+            <div class="spinner"></div>
+            <p>Chargement des conditions météo...</p>
         </div>
 
-        <!-- Zone d'affichage des résultats -->
-        <section id="result-section" class="result-section" hidden>
-            <div class="country-card">
-                <div class="flag-container">
-                    <img id="country-flag" src="" alt="">
+        <!-- Seksyon Kat Rezilta Météo -->
+        <section id="result-section" class="result-container" hidden>
+            <div class="weather-card">
+                <h2 id="country-name">Jacmel, Haiti</h2>
+                <p class="current-label">Current Weather</p>
+                
+                <div class="weather-display">
+                    <span id="country-capital" class="temperature">21.5°C</span>
                 </div>
-                <div class="info-container">
-                    <h2 id="country-name"></h2>
-                    <div class="info-grid">
-                        <div class="info-item"><strong>Capitale:</strong> <span id="country-capital"></span></div>
-                        <div class="info-item"><strong>Population:</strong> <span id="country-population"></span></div>
-                        <div class="info-item"><strong>Région:</strong> <span id="country-region"></span></div>
-                        <div class="info-item"><strong>Monnaie:</strong> <span id="country-currency"></span></div>
-                        <div class="info-item"><strong>Langues:</strong> <span id="country-languages"></span></div>
+
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <span class="detail-icon">☁️</span>
+                        <div>
+                            <p class="detail-title">Condition</p>
+                            <p id="country-region" class="detail-value">Partly Cloudy</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-icon">💨</span>
+                        <div>
+                            <p class="detail-title">Wind Speed</p>
+                            <p id="country-population" class="detail-value">14.2 km/h</p>
+                        </div>
                     </div>
                 </div>
+                <p class="update-time">🕒 Mis à jour instantanément</p>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 ISTEAH - LOG3500. Tous droits réservés.</p>
+        <p>&copy; 2026 - Jérôme Elie | DUT en TIC - ISTEAH</p>
     </footer>
 
-    <script src="js/app.js"></script>
 </body>
 </html>

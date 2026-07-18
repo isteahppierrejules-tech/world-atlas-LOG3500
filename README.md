@@ -1,45 +1,24 @@
-# LOG3500 - Conception et programmation de sites Web I
-## Devoir 2 : Applications Web Asynchrones & API
-### Option 1 : L'Atlas Mondial Interactif
+# Weather Dashboard - LOG3500
 
-Ce projet consiste en une application web asynchrone responsive connectée à l'API réelle **REST Countries API (v3.1)**. L'utilisateur peut saisir le nom d'un pays pour générer dynamiquement sa carte d'identité sémantique et visuelle.
+Ce projet consiste en une application web moderne, asynchrone et responsive qui interroge les API d'Open-Meteo pour afficher les conditions météorologiques actuelles d'une ville recherchée.
 
----
+## Fonctionnalités Implémentées
 
-## 🚀 Fonctionnalités implémentées
+- **Architecture Sémantique HTML5** : Utilisation stricte des balises structurelles (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`).
+- **Asynchronisme Avancé** : Intégration de `fetch()` combiné avec `async / await` au sein d'un bloc `try...catch`.
+- **Enchaînement de Requêtes (Chaining)** : 
+  1. Étape 1 : Appel à l'API Geocoding pour obtenir la latitude et la longitude de la ville.
+  2. Étape 2 : Appel à l'API Forecast avec les coordonnées obtenues pour récupérer les données météo en temps réel.
+- **Sécurité du DOM** : Utilisation stricte de `textContent` pour l'injection des variables textuelles afin de bloquer les failles XSS.
+- **Accessibilité Numérique (a11y)** : Gestion dynamique des attributs `aria-invalid` et `aria-describedby` en cas de saisie vide.
+- **Design Responsive** : Layout flexible géré avec Flexbox et adapté aux supports mobiles via des Media Queries.
 
-- **Architecture HTML5 Sémantique** : Utilisation des balises structurantes (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`).
-- **Mise en page & Responsive Design** : Alignement moderne grâce à CSS Flexbox et Grid, s'adaptant parfaitement aux smartphones, tablettes et ordinateurs.
-- **Indicateur de Chargement** : Un spinner d'attente animé s'affiche pendant la requête réseau et disparaît à l'injection des données.
-- **Accessibilité Numérique (a11y)** : Gestion dynamique des attributs `aria-invalid` et `aria-describedby` avec des messages d'erreur explicites pour les champs vides.
-- **Asynchronisme Moderne** : Utilisation de l'API `fetch()` couplée avec l'architecture `async / await` dans un bloc `try...catch`.
-- **Sécurité du DOM** : Protection stricte contre les failles XSS grâce à l'utilisation exclusive de la propriété `textContent` pour injecter les variables textuelles.
-- **Gestion des Erreurs** : Interception des erreurs HTTP (ex: 404 si le pays n'existe pas) et des interruptions réseau avec des alertes adaptées à l'utilisateur.
+## Structure des Dossiers
 
----
-
-## 📂 Structure du projet
-
-Conformément aux directives, le projet respecte l'arborescence suivante :
-- index.html
-- css/
-  - style.css
-- js/
-  - app.js
-- README.md
-
----
-
-## 🛠️ Technologies utilisées
-
-- **HTML5** (Validé W3C)
-- **CSS3** (Validé W3C, Flexbox, Grid)
-- **JavaScript Modern (ES6+)** : Fetch API, Async/Await
-- **API Externe** : [REST Countries](https://restcountries.com/)
-
----
-
-## 🧑‍💻 Étudiant
-- **Nom** : Pierre Jules Pharah
-- **Programme** : DUT en TIC, ISTEAH
-- **Session** : Été 2026
+```text
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   └── app.js
+└── README.md
