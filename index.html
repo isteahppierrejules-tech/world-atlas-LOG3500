@@ -10,7 +10,7 @@
 
     <header>
         <nav>
-            <div class="logo">⛅ Weather Dashboard</div>
+            <div class="logo">☁️ Weather Dashboard</div>
             <ul>
                 <li><a href="#" class="active">Dashboard</a></li>
                 <li><a href="#">Forecast</a></li>
@@ -23,13 +23,11 @@
     <main>
         <!-- Seksyon Chèche a -->
         <section class="search-section">
-            <h1>Consulter la météo en temps réel</h1>
             <form id="search-form">
                 <div class="search-group">
                     <input type="text" id="country-input" placeholder="Entrez le nom d'une ville (ex: Jacmel)..." autocomplete="off">
-                    <button type="submit" id="search-button">Rechercher</button>
+                    <button type="submit">Rechercher</button>
                 </div>
-                <!-- Mesaj Erè Aksesibilite (aria) -->
                 <p id="error-message" class="error-msg" hidden></p>
             </form>
         </section>
@@ -40,36 +38,39 @@
             <p>Chargement des conditions météo...</p>
         </div>
 
-        <!-- Seksyon Kat Rezilta Météo -->
+        <!-- Seksyon Kat Rezilta Météo (Egzakteman tankou makèt la) -->
         <section id="result-section" class="result-container" hidden>
             <div class="weather-card">
-                <h2 id="country-name">Jacmel, Haiti</h2>
+                <div class="location-header">
+                    <span class="geo-icon">📍</span>
+                    <h2 id="country-name">Jacmel, Haiti</h2>
+                </div>
                 <p class="current-label">Current Weather</p>
 
-                <div class="weather-details">
-                    <div class="detail-item">
-                        <span class="detail-icon">饰️</span>
-                        <div>
-                            <p class="detail-title">Température</p>
-                            <p id="country-capital" class="detail-value">-- °C</p>
-                        </div>
+                <!-- Ti solèy / nwaj dinamik -->
+                <div class="weather-icon-center">☀️</div>
+                
+                <!-- Gwo chif Tanperati a nan mitan -->
+                <div class="temperature-container">
+                    <span id="country-capital" class="temperature">21.5°C</span>
+                </div>
+
+                <!-- Liy anba a ki separe an de blòk -->
+                <div class="weather-meta">
+                    <div class="meta-item condition-box">
+                        <span class="meta-icon">⛅</span>
+                        <span id="country-region" class="meta-value">Partly Cloudy</span>
                     </div>
-                    <div class="detail-item">
-                        <span class="detail-icon">💨</span>
+                    <div class="meta-item wind-box">
+                        <span class="meta-icon">💨</span>
                         <div>
-                            <p class="detail-title">Vitesse du vent</p>
-                            <p id="country-population" class="detail-value">-- km/h</p>
-                        </div>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-icon">☁️</span>
-                        <div>
-                            <p class="detail-title">Condition</p>
-                            <p id="country-region" class="detail-value">--</p>
+                            <p id="country-population" class="meta-value">14.2 km/h</p>
+                            <p class="meta-sub">Wind Speed</p>
                         </div>
                     </div>
                 </div>
-                <p class="update-time">🕒 Mis à jour instantanément</p>
+
+                <p class="update-time">🕒 Updated just now</p>
             </div>
         </section>
     </main>
