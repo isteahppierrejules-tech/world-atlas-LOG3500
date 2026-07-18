@@ -24,10 +24,10 @@
         <!-- Seksyon Chèche a -->
         <section class="search-section">
             <h1>Consulter la météo en temps réel</h1>
-            <form id="search-form" novalidate>
+            <form id="search-form">
                 <div class="search-group">
                     <input type="text" id="country-input" placeholder="Entrez le nom d'une ville (ex: Jacmel)..." autocomplete="off">
-                    <button type="submit">Rechercher</button>
+                    <button type="submit" id="search-button">Rechercher</button>
                 </div>
                 <!-- Mesaj Erè Aksesibilite (aria) -->
                 <p id="error-message" class="error-msg" hidden></p>
@@ -48,7 +48,7 @@
 
                 <div class="weather-details">
                     <div class="detail-item">
-                        <span class="detail-icon">🌡️</span>
+                        <span class="detail-icon">饰️</span>
                         <div>
                             <p class="detail-title">Température</p>
                             <p id="country-capital" class="detail-value">-- °C</p>
