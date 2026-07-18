@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             spinner.hidden = false;
 
             try {
-                // ETAP 1: Géocodage (Chèche kowòdone yo - Sèvi ak https obligatwa)
+                // ETAP 1: Géocodage (Chèche kowòdone yo)
                 const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cityName)}&count=1`;
                 const geoResponse = await fetch(geoUrl);
                 
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const nameVille = location.name;
                 const paysVille = location.country || "";
 
-                // ETAP 2: Chèche Météo a avèk kowòdone yo (Sèvi ak https obligatwa)
+                // ETAP 2: Chèche Météo a avèk kowòdone yo
                 const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
                 const weatherResponse = await fetch(weatherUrl);
                 
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (error.message === "NOT_FOUND") {
                     errorMessage.textContent = "Aucun résultat trouvé pour cette recherche. Veuillez vérifier l'orthographe.";
                 } else {
-                    errorMessage.textContent = "Connexion impossible. Veuillez vérifier votre accès à internet ou l'état du serveur.";
+                    errorMessage.textContent = "Connexion impossible. Veuillez vérifier votre accès à internet.";
                 }
             } finally {
                 // Kache spinner a nan tout ka
@@ -100,4 +100,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Jere chanjman nan meni an (Dashboard, Forecast, Map, Alerts)
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (this.getAttribute('href') === '#') {
+                e.preventDefault();
+            }
+            
+            // Retire liy ble active la sou ansyen lyen an
+            document.querySelectorAll('nav ul li a').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Mete liy ble a sou sa ou sot klike a
+            this.classList.add('active');
+        });
+    });
 });
