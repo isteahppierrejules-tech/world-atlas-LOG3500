@@ -7,17 +7,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (searchForm) {
         searchForm.addEventListener('submit', async function(event) {
-            event.preventDefault(); // Anpeche paj la rechaje
+            event.preventDefault(); // Anpeche paj la rechaje otomatikman
 
-            const cityName = inputField.value.trim(); // Netwaye espas yo
+            const cityName = inputField.value.trim(); // Netwaye antre a[cite: 1]
 
-            // Reyisyalize eta koòdone a
+            // Reyisyalize koòdone a
             errorMessage.hidden = true;
             resultSection.hidden = true;
             inputField.removeAttribute('aria-invalid');
             inputField.removeAttribute('aria-describedby');
 
-            // 1. Validasyon si chan an vid (Kondisyon Aksesibilite)[cite: 1]
+            // 1. Validasyon si jaden an vid (Kondisyon Aksesibilite)[cite: 1]
             if (cityName === "") {
                 inputField.setAttribute('aria-invalid', 'true');
                 inputField.setAttribute('aria-describedby', 'error-message');
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             spinner.hidden = false;
 
             try {
-                // ETAP 1: Géocodage (Chèche kowòdone vil la)[cite: 1]
+                // ETAP 1: Géocodage (Chèche kowòdone yo)[cite: 1]
                 const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cityName)}&count=1`;
                 const geoResponse = await fetch(geoUrl);
                 
@@ -73,24 +73,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('country-population').textContent = `${current.windspeed} km/h`;
                 document.getElementById('country-region').textContent = statusText;
 
-                // Afiche kat rezilta a kounye a
+                // Afiche bwat rezilta a
                 resultSection.hidden = false;
 
             } catch (error) {
                 errorMessage.hidden = false;
                 if (error.message === "NOT_FOUND") {
-                    errorMessage.textContent = "Aucun résultat trouvé pour cette recherche. Veuillez vérifier l'orthographe.";[cite: 1]
+                    errorMessage.textContent = "Aucun résultat trouvé pour cette recherche. Veuillez vérifier l'orthographe."; //[cite: 1]
                 } else {
-                    errorMessage.textContent = "Connexion impossible. Veuillez vérifier votre accès à internet.";[cite: 1]
+                    errorMessage.textContent = "Connexion impossible. Veuillez vérifier votre accès à internet."; //[cite: 1]
                 }
             } finally {
-                // Kache spinner a toujou[cite: 1]
+                // Kache spinner a nan tout ka[cite: 1]
                 spinner.hidden = true;
             }
         });
     }
 
-    // Efase erè lè moun lan ap tape yon bagay[cite: 1]
+    // Efase erè lè itilizatè a ap tape[cite: 1]
     if (inputField) {
         inputField.addEventListener('input', function() {
             if (!errorMessage.hidden) {
