@@ -38,8 +38,8 @@
             <p>Chargement des conditions météo...</p>
         </div>
 
-        <!-- Seksyon Kat Rezilta Météo (Egzakteman tankou makèt la) -->
-        <section id="result-section" class="result-container">
+        <!-- Seksyon Kat Rezilta Météo -->
+        <section id="result-section" class="result-container" hidden>
             <div class="weather-card">
                 <div class="location-header">
                     <span class="geo-icon">📍</span>
@@ -47,24 +47,21 @@
                 </div>
                 <p class="current-label">Current Weather</p>
 
-                <!-- Ti solèy / nwaj dinamik -->
                 <div class="weather-icon-center">☀️</div>
                 
-                <!-- Gwo chif Tanperati a nan mitan -->
                 <div class="temperature-container">
-                    <span id="country-capital" class="temperature">21.5°C</span>
+                    <span id="country-capital" class="temperature">-- °C</span>
                 </div>
 
-                <!-- Liy anba a ki separe an de blòk -->
                 <div class="weather-meta">
                     <div class="meta-item condition-box">
                         <span class="meta-icon">⛅</span>
-                        <span id="country-region" class="meta-value">Partly Cloudy</span>
+                        <span id="country-region" class="meta-value">--</span>
                     </div>
                     <div class="meta-item wind-box">
                         <span class="meta-icon">💨</span>
                         <div>
-                            <p id="country-population" class="meta-value">14.2 km/h</p>
+                            <p id="country-population" class="meta-value">-- km/h</p>
                             <p class="meta-sub">Wind Speed</p>
                         </div>
                     </div>
@@ -76,8 +73,9 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 - Pierre Jules Pharah | DUT en TIC - ISTEAH</p>
+        <p>&copy; 2026 - Jérôme Elie | DUT en TIC - ISTEAH</p>
     </footer>
 
+    <script src="js/app.js" defer></script>
 </body>
 </html>
