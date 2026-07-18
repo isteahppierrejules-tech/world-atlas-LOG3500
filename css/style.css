@@ -1,0 +1,202 @@
+/* Reset jeneral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header & Navigation */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0066cc;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+
+nav ul a.active {
+    color: #0066cc;
+    border-bottom: 2px solid #0066cc;
+}
+
+/* Main Layout */
+main {
+    flex: 1;
+    max-width: 800px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Barre de recherche */
+.search-section {
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+/* Stil lè chan an gen erè (aria-invalid) */
+input[aria-invalid="true"] {
+    border-color: #dc3545;
+    background-color: #f8d7da;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #0052a3;
+}
+
+.error-text {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Carte Atlas Peyi a (Responsive) */
+.country-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Pase sou de kolòn si ekran an laj */
+@media(min-width: 600px) {
+    .country-card {
+        flex-direction: row;
+    }
+}
+
+.flag-container {
+    flex: 1;
+    background: #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.flag-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.info-container {
+    flex: 1.5;
+    padding: 1.5rem;
+}
+
+.info-container h2 {
+    margin-bottom: 1rem;
+    color: #222;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #f4f7f6;
+    padding-bottom: 0.5rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+@media(min-width: 450px) {
+    .info-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.info-item {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* CSS Animasyon pou Spinner Loading lan */
+.spinner {
+    text-align: center;
+    margin: 2rem 0;
+    color: #555;
+}
+.double-bounce1, .double-bounce2 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #0066cc;
+    opacity: 0.6;
+    margin: 0 auto 1rem auto;
+    animation: bounce 2.0s infinite ease-in-out;
+}
+.double-bounce2 { animation-delay: -1.0s; }
+@keyframes bounce {
+    0%, 100% { transform: scale(0.0); }
+    50% { transform: scale(1.0); }
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+    margin-top: auto;
+}
