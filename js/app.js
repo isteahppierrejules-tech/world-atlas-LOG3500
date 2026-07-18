@@ -27,8 +27,7 @@ document.getElementById('search-form').addEventListener('submit', async function
     spinner.hidden = false;
 
     // 2. Apèl API avèk blòk try...catch pou asynchronisme
-    try {
-        const response = await fetch(`https://restcountries.com/v3.1/name/${encodeURIComponent(countryName)}`);
+const response = await fetch(`https://restcountries.com/v3.1/name/${encodeURIComponent(countryName)}/`);
         
         // Jere si peyi a pa egziste (Erè 404)
         if (!response.ok) {
