@@ -28,8 +28,7 @@ document.getElementById('search-form').addEventListener('submit', async function
 
     // 2. Apèl API avèk blòk try...catch pou asynchronisme
     try {
-        const response = await fetch(`https://restcountries.com/v3.1/name/${encodeURIComponent(countryName)}/`);
-        
+        const response = await fetch(`https://opencountries.com/v3.1/name/${encodeURIComponent(countryName)}`);     
         // Jere si peyi a pa egziste (Erè 404)
         if (!response.ok) {
             throw new Error("NOT_FOUND");
@@ -68,7 +67,7 @@ document.getElementById('search-form').addEventListener('submit', async function
 
         // Afiche kat la bay itilizatè a
         resultSection.hidden = false;
-
+spinner.hidden = true;
     } catch (error) {
         // 5. Jesyon Erè API yo
         errorMessage.hidden = false;
