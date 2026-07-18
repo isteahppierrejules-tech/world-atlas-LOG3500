@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         searchForm.addEventListener('submit', async function(event) {
             event.preventDefault(); // Anpeche paj la rechaje otomatikman
 
-            const cityName = inputField.value.trim(); // Netwaye antre a[cite: 1]
+            const cityName = inputField.value.trim(); // Netwaye antre a
 
             // Reyisyalize koòdone a
             errorMessage.hidden = true;
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             inputField.removeAttribute('aria-invalid');
             inputField.removeAttribute('aria-describedby');
 
-            // 1. Validasyon si jaden an vid (Kondisyon Aksesibilite)[cite: 1]
+            // 1. Validasyon si jaden an vid (Kondisyon Aksesibilite)
             if (cityName === "") {
                 inputField.setAttribute('aria-invalid', 'true');
                 inputField.setAttribute('aria-describedby', 'error-message');
@@ -26,11 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Afiche loader a[cite: 1]
+            // Afiche loader a
             spinner.hidden = false;
 
             try {
-                // ETAP 1: Géocodage (Chèche kowòdone yo)[cite: 1]
+                // ETAP 1: Géocodage (Chèche kowòdone yo - Sèvi ak https obligatwa)
                 const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cityName)}&count=1`;
                 const geoResponse = await fetch(geoUrl);
                 
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const nameVille = location.name;
                 const paysVille = location.country || "";
 
-                // ETAP 2: Chèche Météo a avèk kowòdone yo[cite: 1]
+                // ETAP 2: Chèche Météo a avèk kowòdone yo (Sèvi ak https obligatwa)
                 const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
                 const weatherResponse = await fetch(weatherUrl);
                 
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const weatherData = await weatherResponse.json();
                 const current = weatherData.current_weather;
 
-                // ETAP 3: Dekode weathercode a an tèks[cite: 1]
+                // ETAP 3: Dekode weathercode a an tèks
                 let statusText = "Nuageux";
                 const code = current.weathercode;
                 if (code === 0) statusText = "Ensoleillé";
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 else if (code >= 80 && code <= 82) statusText = "Averses de pluie";
                 else if (code >= 95) statusText = "Orageux";
 
-                // ETAP 4: Enjeksyon done an sekirite (textContent)[cite: 1]
+                // ETAP 4: Enjeksyon done an sekirite (textContent)
                 document.getElementById('country-name').textContent = `${nameVille}, ${paysVille}`;
                 document.getElementById('country-capital').textContent = `${current.temperature} °C`;
                 document.getElementById('country-population').textContent = `${current.windspeed} km/h`;
@@ -79,18 +79,18 @@ document.addEventListener('DOMContentLoaded', function() {
             } catch (error) {
                 errorMessage.hidden = false;
                 if (error.message === "NOT_FOUND") {
-                    errorMessage.textContent = "Aucun résultat trouvé pour cette recherche. Veuillez vérifier l'orthographe."; //[cite: 1]
+                    errorMessage.textContent = "Aucun résultat trouvé pour cette recherche. Veuillez vérifier l'orthographe.";
                 } else {
-                    errorMessage.textContent = "Connexion impossible. Veuillez vérifier votre accès à internet."; //[cite: 1]
+                    errorMessage.textContent = "Connexion impossible. Veuillez vérifier votre accès à internet ou l'état du serveur.";
                 }
             } finally {
-                // Kache spinner a nan tout ka[cite: 1]
+                // Kache spinner a nan tout ka
                 spinner.hidden = true;
             }
         });
     }
 
-    // Efase erè lè itilizatè a ap tape[cite: 1]
+    // Efase erè lè itilizatè a ap tape
     if (inputField) {
         inputField.addEventListener('input', function() {
             if (!errorMessage.hidden) {
