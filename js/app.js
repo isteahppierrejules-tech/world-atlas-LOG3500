@@ -1,7 +1,7 @@
 document.getElementById('search-form').addEventListener('submit', async function(event) {
     event.preventDefault(); // Anpeche paj la rechaje
 
-    const inputField = document.getElementById('country-input'); // Nou ka toujou itilize menm ID a pou vil la
+    const inputField = document.getElementById('country-input');
     const cityName = inputField.value.trim(); // Retire espas initil yo
     
     const errorMessage = document.getElementById('error-message');
@@ -69,11 +69,10 @@ document.getElementById('search-form').addEventListener('submit', async function
         else if (code >= 95) statusText = "Orageux";
 
         // ---- ETAP 4: Enjeksyon done yo an sekirite (textContent) ----
-        // N ap adapte ID yo pou kat Météo a
         document.getElementById('country-name').textContent = `${nameVille}, ${paysVille}`;
-        document.getElementById('country-capital').textContent = `${current.temperature} °C`; // Tanperati
-        document.getElementById('country-population').textContent = `${current.windspeed} km/h`; // Vitesse du vent
-        document.getElementById('country-region').textContent = statusText; // Statut météo
+        document.getElementById('country-capital').textContent = `${current.temperature} °C`; 
+        document.getElementById('country-population').textContent = `${current.windspeed} km/h`; 
+        document.getElementById('country-region').textContent = statusText; 
 
         // Afiche kat la bay itilizatè a
         resultSection.hidden = false;
@@ -87,7 +86,7 @@ document.getElementById('search-form').addEventListener('submit', async function
             errorMessage.textContent = "Connexion impossible. Veuillez vérifier votre accès à internet.";
         }
     } finally {
-        // Toujou kache spinner loading lan lè operasyon an fini
+        // Toujou kache spinner loading lan lè operasyon an fini nèt
         spinner.hidden = true;
     }
 });
